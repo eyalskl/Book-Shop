@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/f4b51a9e99.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Poiret+One&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+<body onload="onInit()">
+
+
+    <nav class="navbar navbar-expand-sm navbar-dark" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top" data-trans="title"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item en-lang">
+                        <a id="en" class="nav-link js-scroll-trigger mode" onclick="onSetLang(this.id)"
+                            data-trans="lang-en"></a>
+                    </li>
+                    <li class="nav-item he-lang">
+                        <a id="he" class="nav-link js-scroll-trigger" onclick="onSetLang(this.id)"
+                            data-trans="lang-he"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="add-books">
+        <input name="name" type="text" data-trans="add-book-name-input" placeholder="Insert book name">
+        <input name="price" type="number" data-trans="add-book-price-input" placeholder="Insert price">
+        <button class="add-btn" data-trans="add-book-btn" onclick="onAddBook()">Add New Book</button>
+    </section>
+
+
+    <section class="read-modal" hidden>
+
+    </section>
+
+    <table class="books-table animate__animated animate__bounceInRight">
+        <thead>
+            <tr>
+                <th id="id" onclick="onSetSortBy(this.id)"><i class="fas fa-sort"></i> <span data-trans="th-id"></span>
+                </th>
+                <th id="title" class="text-center" onclick="onSetSortBy(this.id)"><i class="fas fa-sort"></i> <span
+                        data-trans="th-title"></span></th>
+                <th id="rating" onclick="onSetSortBy(this.id)"><i class="fas fa-sort"></i> <span
+                        data-trans="th-rating"></span></th>
+                <th id="price" onclick="onSetSortBy(this.id)"><i class="fas fa-sort"></i> <span
+                        data-trans="th-price"></span></th>
+                <th data-trans="th-actions" class="text-center" colspan="3"></th>
+            </tr>
+        </thead>
+
+        <tbody class="books-body">
+
+        </tbody>
+
+    </table>
+
+    <h3 class="empty-display" data-trans="empty-display" hidden></h3>
+        <button class="delete-btn del-all" data-trans="del-all-btn" onclick="onRemoveAllBooks()">Delete All</button>
+
+        <footer>
+            <button class="page-btn prev" title="Previous Page" onclick="onPageChange(-1)"> << </button>
+            <span><span data-trans="paging">Page</span> : <span class="page-idx"></span></span>
+            <button class="page-btn next" title="Next Page" onclick="onPageChange(1)"> >> </button>
+        </footer>
+        <script src="lib/jquery/jquery.js"></script>
+        <script src="lib/bootstrap/bootstrap.js"></script>
+        <script src="js/i18n-service.js"></script>
+        <script src="js/util-service.js"></script>
+        <script src="js/storage-service.js"></script>
+        <script src="js/book-service.js"></script>
+        <script src="js/book-controller.js"></script>
+</body>
+
+</html>
